@@ -8,7 +8,7 @@ The center of the rectangle will be at the point projected down from the center 
 Print buildings upside down then.
 
 ### Windows
-Windows users should run in docker or adapt the file path in the openscad import statement. You will have to use paths like C://YOUR_FOLDER//MORE_FOLDERS with "//" to escape the "/".
+Windows users should run in docker or adapt the file path in the openscad import statement. You will have to use paths like C:\\YOUR_FOLDER\\MORE_FOLDERS with "\\" to escape the "\".
 Import statement goes here:  https://github.com/digitalcityscience/COUP-prepare-STLs/blob/7d3009053623e1f32c8279b0e3bce368ef794712/main.py#L20
 
 
