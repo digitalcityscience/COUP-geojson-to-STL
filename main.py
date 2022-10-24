@@ -22,10 +22,24 @@ def save_scad_script(filename, coords):
         }
 
         difference() {
-            origBuilding();
 
-            cube([20, 20, 2], center=true);
+            difference() {
+                origBuilding();
+
+                cube([20, 20, 20], center=true);
+            }
+
+             
+             translate([0,0,10]) {
+                scale([1.05, 1.05, 1]) {
+                    origBuilding();
+                }
+            }
+        
+
         }
+
+        
         
         """
     )
@@ -49,8 +63,8 @@ if __name__ == "__main__":
 
     # walk all files
     buildings_dir = os.getcwd() + "/buildings"
-    new_buildings_dir = buildings_dir + "/buildings_with_cutout"
-    scad_dir = buildings_dir + "/scad_scripts"
+    new_buildings_dir = buildings_dir + "/__retrofit_buildings_with_cutout"
+    scad_dir = buildings_dir + "/__retrofit_scad_scripts"
 
     for dir in [new_buildings_dir, scad_dir]:
         if not os.path.isdir(dir):
@@ -76,15 +90,11 @@ if __name__ == "__main__":
             ])
             try:
                 outs, errs = proc.communicate(timeout=15)
-                success = True
             except:
                 proc.kill()
                 outs, errs = proc.communicate()
-                success = False
             proc.kill()
 
-            print(filename, "success:", success)
-            #print(outs, errs)
 
 
 
