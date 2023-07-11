@@ -35,7 +35,7 @@ def find_mins_maxs(obj):
 
 
 
-def get_center_xyz(main_body):
+def get_center_bottom_plane(main_body):
     minx, maxx, miny, maxy, minz, maxz = find_mins_maxs(main_body)
 
     minx=round(minx,3)
@@ -57,7 +57,14 @@ def get_center_xyz(main_body):
     ctry = round(-miny+(-midy),4)
     ctrz = round(-minz+(-midz),4)
 
-    return (ctrx, ctry, -minz)
+    return (ctrx, ctry, minz)
+
+
+def get_building_height(main_body):
+    _minx, _maxx, _miny, _maxy, minz, maxz = find_mins_maxs(main_body)
+
+    return maxz - minz
+
 
 
 
