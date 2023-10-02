@@ -2,6 +2,9 @@
 # ignore building files
 buildings
 
+# ignore geojson files
+input_geojsons
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
