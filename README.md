@@ -1,7 +1,8 @@
 # GEOJSON TO STL
-use geojson2stl.py to convert geojson to STL. 
-It will extrude each feature in your geojson by it's "height" attribute and export it to STL.
-
+Use geojson2stl.py to convert geojson to STL. 
+- Provide a "input.geojson" file. Needs a "height" attribute for each feature.
+- Set a scale factor in the script if needed. 
+- It will extrude each feature in your geojson by it's "height" attribute and export it to STL.
 
 # USE FOR DCS-COUP
 ## Cut ArUco-Markers placeholders into buildings

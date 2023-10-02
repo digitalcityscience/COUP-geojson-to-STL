@@ -50,6 +50,8 @@ if __name__ == "__main__":
     PROVIDE GEOJSON WITH POLYGON OR MULTIPOLYGON FEATURES
     EACH FEATURE NEEDS ATTRIBUTE "HEIGHT" THAT IT WILL BE EXTRUDED BY
     """
+    # Scale all geometries by a factor
+    scale_factor = 1
 
     # read file
     input_gdf = geopandas.read_file("./input.geojson")
@@ -57,12 +59,6 @@ if __name__ == "__main__":
     # reproject to metric coords (HAMBURG)
     input_gdf = input_gdf.set_crs("EPSG:4326", allow_override=True)
     input_gdf = input_gdf.to_crs("EPSG:25832")
-    
-    input_gdf["height"] = input_gdf["building_height"]
-
-    # Scale all geometries by a factor of
-    # 2 (scale of 1/500) *1000, as cadquery works in mm not m)
-    scale_factor = 2
     input_gdf = scale_geometries(input_gdf, scale_factor)
 
     # explode geojson to avoid multi-polygons
